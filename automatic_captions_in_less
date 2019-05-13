@@ -10,7 +10,7 @@ choplines=9 	 #need to chop off some html so html2text doesn't puke
 languagecode=en  # set language code here, i use "en" for english
 
 
-echo "$0" assumes you can just type -l in less to save the text you see.
+echo "$0" assumes you can just type -o in less to save the text you see.
 echo ^
 set -e 
 
