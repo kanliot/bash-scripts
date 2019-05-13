@@ -1,3 +1,14 @@
+youtube's automatic captions, or automatic subtitles are auto-generated for most youtube videos.  the so-named script takes a youtube url then calls youtube-dl to convert them to text format in GNU less.  it also requires you have html2text installed.  
+
+
+
+
+
+
+
+
+
+
 [fixing xdg-open's mime defaults with a bash script - 0ther - SparkyLinux Forums](https://sparkylinux.org/forum/index.php/topic,4899.0.html)
 
 > I recently noticed that installing 'handbrake'  reset some of the mime-types away from my video player.  
