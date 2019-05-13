@@ -1,0 +1,19 @@
+[fixing xdg-open's mime defaults with a bash script - 0ther - SparkyLinux Forums](https://sparkylinux.org/forum/index.php/topic,4899.0.html)
+
+> I recently noticed that installing 'handbrake'  reset some of the mime-types away from my video player.  
+>   
+> So I wrote a bash script to take a list of files and show default mime application in three columns  
+> and another bash script to output bash code to change them all back to say: 'mpv.desktop'  
+> 
+> Code: [\[Select\]](javascript:void(0);)
+> 
+>     # pass a list of files to show what xdg-mime thinks about the mime type of the filesshow_mime_from_files () {# pass a list of files, then enter a new desktop file when script asks for it.# should output some shellcode to help you change default application for mime typesoutput_mime_code () {
+> 
+> these are functions you can run in bash after you download from  
+> 
+> Code [\[Select\]](javascript:void(0);)
+> 
+> `https://github.com/kanliot/bash-scripts/blob/master/show%2Coutput_mime.sh`  
+>   
+> arch wiki says to edit  ~/.config/mimeapps.list  
+> but my way seems to work fine.
