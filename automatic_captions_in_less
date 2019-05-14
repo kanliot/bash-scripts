@@ -2,17 +2,14 @@
 
 
 
-# Automatic captions
+# Automatic captions  copyrightkanliot https://json.org/license.html
 # configure these options if you don't like the defaults 
 #
-textwidth=41 	 #you can wrap text for shorter lines
 choplines=9 	 #need to chop off some html so html2text doesn't puke
-languagecode=en  # set language code here, i use "en" for english
 
-
-echo "$0" assumes you can just type -o in less to save the text you see.
-echo ^
-set -e 
+set -e;
+[ -z "$textwidth" ]    && textwidth=41 	 #you can wrap text for shorter lines
+[ -z "$languagecode" ] && languagecode=en  # set language code here, i use "en" for english
 
 
 
@@ -22,17 +19,26 @@ set -e
 vidcaptions () {
         youtube-dl   --write-auto-sub --sub-format ttml --skip-download  "$@"
 }
-cd /tmp
-FIL=`tempfile`
-
-rm $FIL
-vidcaptions "$1" -o $FIL --sub-lang $languagecode  
 
 
-tail -n+$choplines "$FIL"."$languagecode".ttml|  html2text -width $textwidth - |less 
-echo 
-echo type y now to remove tempfile
-rm -iv "$FIL"."$languagecode".ttml #clean up /tmp
+if [ ! -e "$1" ] #basically if argument is a ttml file then it's not downloaded as an URL 
+	then cd /tmp
+	FIL=`tempfile`
+	rm $FIL
+
+	echo "$0" assumes you can just type -o in less to save the text you see.
+	echo ^  "$1"
+
+	vidcaptions "$1" -o $FIL --sub-lang $languagecode  
+	tail -n+$choplines "$FIL"."$languagecode".ttml|  html2text -width $textwidth - |less 
+	echo 
+	echo type y now to remove tempfile
+	rm -iv "$FIL"."$languagecode".ttml #clean up /tmp
+else 
+	tail -n+$choplines "$1"|  html2text -width $textwidth - |less 
+fi
+
+
 
 
 exit 0
