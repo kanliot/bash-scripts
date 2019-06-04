@@ -1,0 +1,5 @@
+echo would be better if -x not passed, because it tends to not be skipping allready downloaed stuff right
+read
+
+youtube-dl  -r 3M   --exec 'user-yt.sh {}' -x -f 'worstaudio' 'https://www.youtube.com/channel/UCqu-4AY-501xV5iCtt7dMKQ/videos'
+
