@@ -1,5 +1,9 @@
 youtube's automatic captions, or automatic subtitles are auto-generated for most youtube videos.  the so-named script takes a youtube url then calls youtube-dl to convert them to text format in GNU less.  it also requires you have html2text installed.  
 
+download autocapt.sh and use it to launch less
+
+###### Usage:  autocapt <URL|TTML_FILE>
+
 
 
 
